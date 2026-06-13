@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-neutral-light: #fef3e7;
+	--color-neutral-dark: #fbd2a2;
+	--color-blue-dark: #192a52;
+    --color-blue-darker: #0f1a33;
+	--color-red-dark: #82171b;
+    --color-red-darker: #3d0a0c;
+
+	--font-heading: 'Koulen', cursive;
+	--font-sans: 'Droid Sans', sans-serif;
+}
