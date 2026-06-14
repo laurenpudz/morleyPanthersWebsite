@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { Menu, ChevronDown, ChevronRight } from 'lucide-svelte';
+
 	let currOpen: string | null = $state(null);
+	let mobileMenu = $state(false);
 	const links = [
 		{
 			title: "What's New",
@@ -57,7 +60,12 @@
 <nav class="bg-neutral-dark p-5">
 	<div class="flex justify-between items-center px-10">
 		<p class="font-heading text-xl">Morley Panthers</p>
-		<div class="flex gap-5">
+
+		<!-- Hamburger (mobile) -->
+		<Menu class="md:hidden" onclick={() => (mobileMenu = !mobileMenu)} />
+
+		<!-- Main desktop nav -->
+		<div class="hidden md:flex gap-5">
 			{#each links as link (link.title)}
 				<!-- svelte-ignore a11y_no_static_element_interactions -->
 				<div
@@ -76,5 +84,31 @@
 				</div>
 			{/each}
 		</div>
+
+		<!-- Main mobile nav -->
 	</div>
+	{#if mobileMenu}
+		<div class="md:hidden flex-col px-10 pt-2">
+			{#each links as link (link.title)}
+				<div class="flex gap-1 pt-2 items-center">
+					<button
+						onclick={() => (currOpen == link.title ? (currOpen = null) : (currOpen = link.title))}
+						>{link.title}</button
+					>
+					{#if link.children && currOpen == link.title}
+						<ChevronDown size={16} />
+					{:else if link.children}
+						<ChevronRight size={16} />
+					{/if}
+				</div>
+				{#if currOpen == link.title}
+					{#each link.children as child (child.title)}
+						<div class="flex flex col ps-5">
+							<a class="hover:text-red-dark" href={child.link}>{child.title}</a>
+						</div>
+					{/each}
+				{/if}
+			{/each}
+		</div>
+	{/if}
 </nav>
