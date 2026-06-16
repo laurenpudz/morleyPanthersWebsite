@@ -57,7 +57,7 @@
 	];
 </script>
 
-<nav class="bg-neutral-dark p-5">
+<nav class="bg-neutral-dark py-5 drop-shadow-xl">
 	<div class="flex justify-between items-center px-10">
 		<p class="font-heading text-xl">Morley Panthers</p>
 
@@ -88,9 +88,9 @@
 		<!-- Main mobile nav -->
 	</div>
 	{#if mobileMenu}
-		<div class="md:hidden flex-col px-10 pt-2">
+		<div class="md:hidden flex-col px-5 py-2 absolute bg-neutral-dark w-full">
 			{#each links as link (link.title)}
-				<div class="flex gap-1 pt-2 items-center">
+				<div class="flex gap-1 pt-2 items-center border-b w-full">
 					<button
 						onclick={() => (currOpen == link.title ? (currOpen = null) : (currOpen = link.title))}
 						>{link.title}</button
@@ -102,11 +102,11 @@
 					{/if}
 				</div>
 				{#if currOpen == link.title}
-					{#each link.children as child (child.title)}
-						<div class="flex flex col ps-5">
-							<a class="hover:text-red-dark" href={child.link}>{child.title}</a>
-						</div>
-					{/each}
+					<div class="flex flex-col gap-2 py-2">
+						{#each link.children as child (child.title)}
+								<a class="hover:text-red-dark ps-5" href={child.link}>{child.title}</a>
+						{/each}
+					</div>
 				{/if}
 			{/each}
 		</div>
