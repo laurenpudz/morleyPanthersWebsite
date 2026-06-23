@@ -55,6 +55,8 @@
 			]
 		}
 	];
+	// TODO: probs include this in the code instead of defining here
+	const topLevelLinkTitles = links.map((link) => link.title);
 </script>
 
 <nav class="bg-neutral-dark py-5 drop-shadow-xl">
@@ -90,21 +92,38 @@
 	{#if mobileMenu}
 		<div class="md:hidden flex-col px-5 py-2 absolute bg-neutral-dark w-full">
 			{#each links as link (link.title)}
-				<div class="flex gap-1 pt-2 items-center border-b w-full">
-					<button
-						onclick={() => (currOpen == link.title ? (currOpen = null) : (currOpen = link.title))}
-						>{link.title}</button
-					>
-					{#if link.children && currOpen == link.title}
-						<ChevronDown size={16} />
-					{:else if link.children}
-						<ChevronRight size={16} />
-					{/if}
-				</div>
+				<!-- TODO: find out how to change the style within the style tag with js -->
+				{#if topLevelLinkTitles.indexOf(link.title) != links.length - 1}
+					<div class="flex gap-1 pt-2 items-center border-b w-full">
+						<button
+							onclick={() => (currOpen == link.title ? (currOpen = null) : (currOpen = link.title))}
+							>{link.title}</button
+						>
+						{#if link.children && currOpen == link.title}
+							<ChevronDown size={16} />
+						{:else if link.children}
+							<ChevronRight size={16} />
+						{/if}
+					</div>
+				{/if}
+				{#if topLevelLinkTitles.indexOf(link.title) == links.length - 1}
+					<div class="flex gap-1 pt-2 items-center w-full">
+						<button
+							onclick={() => (currOpen == link.title ? (currOpen = null) : (currOpen = link.title))}
+							>{link.title}</button
+						>
+						{#if link.children && currOpen == link.title}
+							<ChevronDown size={16} />
+						{:else if link.children}
+							<ChevronRight size={16} />
+						{/if}
+					</div>
+				{/if}
+
 				{#if currOpen == link.title}
 					<div class="flex flex-col gap-2 py-2">
 						{#each link.children as child (child.title)}
-								<a class="hover:text-red-dark ps-5" href={child.link}>{child.title}</a>
+							<a class="hover:text-red-dark ps-5" href={child.link}>{child.title}</a>
 						{/each}
 					</div>
 				{/if}

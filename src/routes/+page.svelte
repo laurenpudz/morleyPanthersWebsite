@@ -34,12 +34,11 @@
 		}
 	];
 </script>
-
-<div class="relative w-full ps-10 pb-15">
+<div class="relative w-full md:ps-10 pb-15">
 	<img src="art1-expanded.png" alt="Artistic roller skater in a purple dress." class="w-full" />
 	<div class="absolute bottom-0 left-0 flex flex-col items-start">
-		<div class="bg-neutral-dark font-heading text-8xl px-5 pt-2">Morley Panthers</div>
-		<div class="bg-neutral-dark font-heading text-8xl px-5 pb-2">Rollerskating Club</div>
+		<div class="bg-neutral-dark font-heading md:text-8xl text-3xl px-5 pt-2">Morley Panthers</div>
+		<div class="bg-neutral-dark font-heading md:text-8xl text-3xl px-5 pb-2">Rollerskating Club</div>
 	</div>
 </div>
 
