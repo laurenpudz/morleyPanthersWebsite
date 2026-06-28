@@ -21,8 +21,7 @@
 				{ title: 'Life Members', link: 'club/lifemembers' },
 				{ title: 'Award Winners', link: 'club/awardwinners' },
 				{ title: 'Minutes', link: 'club/minutes' },
-				{ title: 'Downloads', link: 'club/downloads' },
-				{ title: 'Classes', link: 'club/classes' }
+				{ title: 'Downloads', link: 'club/downloads' }
 			]
 		},
 		{
@@ -32,6 +31,7 @@
 				{ title: 'The Sport', link: 'artistic/thesport' },
 				{ title: 'Calendar', link: 'artistic/calendar' },
 				{ title: 'Skaters', link: 'artistic/skaters' },
+				{ title: 'Coaches', link: 'artistic/coaches' },
 				{ title: 'Videos', link: 'artistic/videos' },
 				{ title: 'Downloads', link: 'artistic/downloads' }
 			]
@@ -92,33 +92,22 @@
 	{#if mobileMenu}
 		<div class="md:hidden flex-col px-5 py-2 absolute bg-neutral-dark w-full">
 			{#each links as link (link.title)}
-				<!-- TODO: find out how to change the style within the style tag with js -->
-				{#if topLevelLinkTitles.indexOf(link.title) != links.length - 1}
-					<div class="flex gap-1 pt-2 items-center border-b w-full">
-						<button
-							onclick={() => (currOpen == link.title ? (currOpen = null) : (currOpen = link.title))}
-							>{link.title}</button
-						>
-						{#if link.children && currOpen == link.title}
-							<ChevronDown size={16} />
-						{:else if link.children}
-							<ChevronRight size={16} />
-						{/if}
-					</div>
-				{/if}
-				{#if topLevelLinkTitles.indexOf(link.title) == links.length - 1}
-					<div class="flex gap-1 pt-2 items-center w-full">
-						<button
-							onclick={() => (currOpen == link.title ? (currOpen = null) : (currOpen = link.title))}
-							>{link.title}</button
-						>
-						{#if link.children && currOpen == link.title}
-							<ChevronDown size={16} />
-						{:else if link.children}
-							<ChevronRight size={16} />
-						{/if}
-					</div>
-				{/if}
+				<div
+					class="flex gap-1 pt-2 items-center w-full {topLevelLinkTitles.indexOf(link.title) !=
+					links.length - 1
+						? 'border-b'
+						: ''}"
+				>
+					<button
+						onclick={() => (currOpen == link.title ? (currOpen = null) : (currOpen = link.title))}
+						>{link.title}</button
+					>
+					{#if link.children && currOpen == link.title}
+						<ChevronDown size={16} />
+					{:else if link.children}
+						<ChevronRight size={16} />
+					{/if}
+				</div>
 
 				{#if currOpen == link.title}
 					<div class="flex flex-col gap-2 py-2">
