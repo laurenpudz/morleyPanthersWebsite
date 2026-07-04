@@ -16,4 +16,8 @@ interface LandingCardProps {
     button?: ButtonProps
 }
 
-export type {LandingCardProps}
+interface HeadingProps {
+    title: string;
+}
+
+export type {LandingCardProps, HeadingProps}
