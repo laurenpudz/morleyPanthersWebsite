@@ -1,5 +1,5 @@
 <script lang="ts">
-	import FeatureHeading from '../../../components/featureHeading.svelte';
+	import BasicPageWrapper from '../../../components/basicPageWrapper.svelte';
 	import { ChevronDown, ChevronRight } from 'lucide-svelte';
 
 	let showFreeskateInfo = $state(false);
@@ -8,8 +8,7 @@
 	let showGroupInfo = $state(false);
 </script>
 
-<FeatureHeading title="ARTISTIC SKATING" />
-<div class="px-5 xl:px-0">
+<BasicPageWrapper title="Artistic Skating">
 	<p class="py-3">
 		Artistic roller skating is the branch of the sport where the winner is the skater or team that
 		shows the greatest skating skill. It's about being the best, not necessarily the fastest or
@@ -148,4 +147,4 @@
 			</p>
 		{/if}
 	</div>
-</div>
+</BasicPageWrapper>

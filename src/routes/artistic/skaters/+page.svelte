@@ -1,5 +1,6 @@
 <script lang="ts">
 	import FeatureHeading from '../../../components/featureHeading.svelte';
+	import BasicPageWrapper from '../../../components/basicPageWrapper.svelte';
 	import type { ChampionProps } from '../../../common/types';
 	import ChampionCard from '../../../components/championCard.svelte';
 	const championsInfo: ChampionProps[] = [
@@ -50,9 +51,10 @@
 	];
 </script>
 
-<FeatureHeading title="Artistic Champions Gallery" />
-<div class="flex gap-5 gap-y-12 flex-wrap items-baseline pt-10 pb-16 justify-center px-5 xl:px-0">
-	{#each championsInfo as champion (champion.name)}
-		<ChampionCard {...champion} />
-	{/each}
-</div>
+<BasicPageWrapper title="Artistic Champions Gallery">
+	<div class="flex gap-5 gap-y-12 flex-wrap items-baseline pt-5 pb-16 justify-center">
+		{#each championsInfo as champion (champion.name)}
+			<ChampionCard {...champion} />
+		{/each}
+	</div>
+</BasicPageWrapper>

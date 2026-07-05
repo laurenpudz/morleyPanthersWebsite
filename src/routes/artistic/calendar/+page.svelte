@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { SvelteDate } from 'svelte/reactivity';
-	import FeatureHeading from '../../../components/featureHeading.svelte';
+	import BasicPageWrapper from '../../../components/basicPageWrapper.svelte';
 	import type { CalendarEventProps } from '../../../common/types';
 	let currTab: string = $state('upcoming');
-	
-// TODO: this is not all events
+
+	// TODO: this is not all events
 	const events: CalendarEventProps[] = [
 		{
 			startDate: '18-07-2026',
@@ -63,8 +63,7 @@
 </script>
 
 <!-- TODO: Pagination -->
-<FeatureHeading title="Artistic Calendar" />
-<div class="px-5 xl:px-0 flex flex-col items-start">
+<BasicPageWrapper title="Artistic Calendar">
 	<!-- tab toggle -->
 	<div class="bg-blue-dark flex items-center rounded-md">
 		{#if currTab == 'upcoming'}
@@ -96,6 +95,7 @@
 		</thead>
 		<tbody>
 			<!-- upcoming events -->
+			<!-- TODO: refactor to reuse component in past events tab -->
 			{#if currTab == 'upcoming'}
 				{#each upcomingEvents as event, i (event.name)}
 					<!-- <tr class:bg-neutral-dark={i % 2 == 0}> -->
@@ -129,4 +129,4 @@
 			{/if}
 		</tbody>
 	</table>
-</div>
+</BasicPageWrapper>
