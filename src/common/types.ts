@@ -1,29 +1,36 @@
 export enum ButtonColourScheme {
-    Red,
-    Blue
+	Red,
+	Blue
 }
 
 interface ButtonProps {
-    text: string;
-    href: string;
-    colourScheme: ButtonColourScheme
+	text: string;
+	href: string;
+	colourScheme: ButtonColourScheme;
 }
 
 interface LandingCardProps {
-    title: string;
-    description: string;
-    image: string;
-    button?: ButtonProps
+	title: string;
+	description: string;
+	image: string;
+	button?: ButtonProps;
 }
 
 interface HeadingProps {
-    title: string;
+	title: string;
 }
 
 interface ChampionProps {
-    name: string;
-    image: string;
-    titles: string[];
+	name: string;
+	image: string;
+	titles: string[];
 }
 
-export type {LandingCardProps, HeadingProps, ChampionProps}
+interface CalendarEventProps {
+	startDate: string;
+    endDate: string;
+	name: string;
+	venue?: string;
+}
+
+export type { LandingCardProps, HeadingProps, ChampionProps, CalendarEventProps };

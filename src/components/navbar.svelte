@@ -9,40 +9,40 @@
 			title: "What's New",
 			link: 'whatsnew',
 			children: [
-				{ title: '2026 Nationals Figure Draws', link: '2026nationalsfiguredraw' },
-				{ title: '2026 Leauge 3 Program', link: 'leauge3program' }
+				{ title: '2026 Nationals Figure Draws', link: '/2026nationalsfiguredraw' },
+				{ title: '2026 Leauge 3 Program', link: '/leauge3program' }
 			]
 		},
 		{
 			title: 'Club',
 			link: 'club',
 			children: [
-				{ title: 'Classes', link: 'club/classes' },
-				{ title: 'Committee', link: 'club/committee' },
-				{ title: 'Life Members', link: 'club/lifemembers' },
-				{ title: 'Award Winners', link: 'club/awardwinners' },
-				{ title: 'Minutes', link: 'club/minutes' },
-				{ title: 'Downloads', link: 'club/downloads' }
+				{ title: 'Classes', link: '/club/classes' },
+				{ title: 'Committee', link: '/club/committee' },
+				{ title: 'Life Members', link: '/club/lifemembers' },
+				{ title: 'Award Winners', link: '/club/awardwinners' },
+				{ title: 'Minutes', link: '/club/minutes' },
+				{ title: 'Downloads', link: '/club/downloads' }
 			]
 		},
 		{
 			title: 'Artistic',
 			link: 'artistic',
 			children: [
-				{ title: 'The Sport', link: 'artistic/thesport' },
-				{ title: 'Calendar', link: 'artistic/calendar' },
-				{ title: 'Skaters', link: 'artistic/skaters' },
-				{ title: 'Coaches', link: 'artistic/coaches' },
-				{ title: 'Videos', link: 'artistic/videos' },
-				{ title: 'Downloads', link: 'artistic/downloads' }
+				{ title: 'The Sport', link: '/artistic/thesport' },
+				{ title: 'Calendar', link: '/artistic/calendar' },
+				{ title: 'Skaters', link: '/artistic/skaters' },
+				{ title: 'Coaches', link: '/artistic/coaches' },
+				{ title: 'Videos', link: '/artistic/videos' },
+				{ title: 'Downloads', link: '/artistic/downloads' }
 			]
 		},
 		{
 			title: 'Speed',
 			link: 'speed',
 			children: [
-				{ title: 'The Sport', link: 'speed/thesport' },
-				{ title: 'Calendar', link: 'speed/calendar' }
+				{ title: 'The Sport', link: '/speed/thesport' },
+				{ title: 'Calendar', link: '/speed/calendar' }
 			]
 		},
 		{
@@ -76,11 +76,11 @@
 					onmouseenter={() => (currOpen = link.title)}
 					onmouseleave={() => (currOpen = null)}
 				>
-					<button>{link.title}</button>
+					<button class="font-heading">{link.title}</button>
 					{#if currOpen == link.title}
 						<div class="bg-neutral-dark text-black flex flex-col gap-3 absolute p-5">
 							{#each link.children as child (child.title)}
-								<a class="hover:text-red-dark" href={child.link}>{child.title}</a>
+								<a class="hover:text-red-dark" href={resolve(child.link)}>{child.title}</a>
 							{/each}
 						</div>
 					{/if}
@@ -113,7 +113,7 @@
 				{#if currOpen == link.title}
 					<div class="flex flex-col gap-2 py-2">
 						{#each link.children as child (child.title)}
-							<a class="hover:text-red-dark ps-5" href={child.link}>{child.title}</a>
+							<a class="hover:text-red-dark ps-5" href={resolve(child.link)}>{child.title}</a>
 						{/each}
 					</div>
 				{/if}
