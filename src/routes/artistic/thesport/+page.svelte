@@ -26,7 +26,9 @@
 	</p>
 	<div class="flex flex-col gap-2 py-3">
 		<div>
-			<button class="font-heading text-2xl flex items-center gap-2" onclick={() => (showFreeskateInfo = !showFreeskateInfo)}
+			<button
+				class="font-heading text-2xl flex items-center gap-2"
+				onclick={() => (showFreeskateInfo = !showFreeskateInfo)}
 				>Free Skating
 				{#if showFreeskateInfo}
 					<ChevronDown />
@@ -55,8 +57,14 @@
 			</p>
 		{/if}
 		<div>
-			<button class="font-heading text-2xl" onclick={() => (showDanceInfo = !showDanceInfo)}
-				>Dance</button
+			<button
+				class="font-heading text-2xl flex items-center gap-2"
+				onclick={() => (showDanceInfo = !showDanceInfo)}
+				>Dance {#if showDanceInfo}
+					<ChevronDown />
+				{:else}
+					<ChevronRight />
+				{/if}</button
 			>
 		</div>
 		{#if showDanceInfo}
@@ -82,10 +90,15 @@
 		{/if}
 		<div>
 			<button
-				class="font-heading text-2xl"
+				class="font-heading text-2xl flex items-center gap-2"
 				onclick={() => {
 					showFiguresInfo = !showFiguresInfo;
-				}}>Figures</button
+				}}
+				>Figures {#if showFiguresInfo}
+					<ChevronDown />
+				{:else}
+					<ChevronRight />
+				{/if}</button
 			>
 			{#if showFiguresInfo}
 				<p class="p-3">
@@ -104,10 +117,15 @@
 		</div>
 		<div>
 			<button
-				class="font-heading text-2xl"
+				class="font-heading text-2xl flex items-center gap-2"
 				onclick={() => {
 					showGroupInfo = !showGroupInfo;
-				}}>Precision, Quartets and Showgroups</button
+				}}
+				>Precision, Quartets and Showgroups {#if showGroupInfo}
+					<ChevronDown />
+				{:else}
+					<ChevronRight />
+				{/if}</button
 			>
 		</div>
 		{#if showGroupInfo}
