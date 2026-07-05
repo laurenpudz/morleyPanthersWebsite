@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Menu, ChevronDown, ChevronRight } from 'lucide-svelte';
+	import { resolve } from '$app/paths';
 
 	let currOpen: string | null = $state(null);
 	let mobileMenu = $state(false);
@@ -61,7 +62,7 @@
 
 <nav class="bg-neutral-dark py-5 drop-shadow-xl">
 	<div class="flex justify-between items-center px-10">
-		<p class="font-heading text-xl">Morley Panthers</p>
+		<a class="font-heading text-xl" href={resolve('/')}>Morley Panthers</a>
 
 		<!-- Hamburger (mobile) -->
 		<Menu class="md:hidden" onclick={() => (mobileMenu = !mobileMenu)} />

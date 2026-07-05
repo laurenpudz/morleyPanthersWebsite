@@ -20,4 +20,10 @@ interface HeadingProps {
     title: string;
 }
 
-export type {LandingCardProps, HeadingProps}
+interface ChampionProps {
+    name: string;
+    image: string;
+    titles: string[];
+}
+
+export type {LandingCardProps, HeadingProps, ChampionProps}

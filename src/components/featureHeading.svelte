@@ -3,6 +3,10 @@
 	let heading: HeadingProps = $props();
 </script>
 
-<div class="flex items-start">
-	<p class="bg-neutral-dark font-heading md:text-4xl text-xl px-5 py-2 grow-0">{heading.title}</p>
+<div class="py-5">
+	<div class="flex items-start">
+		<p class="bg-neutral-dark font-heading md:text-4xl text-2xl px-5 py-2 grow-0">
+			{heading.title}
+		</p>
+	</div>
 </div>
