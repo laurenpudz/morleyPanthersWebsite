@@ -7,7 +7,9 @@
 		{ role: 'Registrar', name: 'Vacant', email: '' },
 		{ role: 'Fundraising Officer', name: 'Vacant', email: '' },
 		{ role: 'Artistic Rep.', name: 'Kate Williams', email: 'MorleyArtRep@outlook.com' },
-		{ role: 'Speed Rep.', name: 'Ashton Walden', email: 'MorleySpeedRep@outlook.com' }
+		{ role: 'Speed Rep.', name: 'Ashton Walden', email: 'MorleySpeedRep@outlook.com' },
+        {role: 'Vice President', name: 'Ashton Walden', email: "MorleyVicePresident@outlook.com"},
+        {role: 'President', name: 'Amy Cumming', email: 'MorleyPresident@outlook.com'}
 	];
 </script>
 

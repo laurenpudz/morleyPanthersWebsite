@@ -39,4 +39,11 @@ interface CommMemberProps {
 	email: string;
 }
 
-export type { LandingCardProps, HeadingProps, ChampionProps, CalendarEventProps, CommMemberProps };
+interface LifeMemberProps {
+	name: string;
+	year: string;
+	image: string;
+	bio: string;
+}
+
+export type { LandingCardProps, HeadingProps, ChampionProps, CalendarEventProps, CommMemberProps, LifeMemberProps };
