@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BasicPageWrapper from '../../../components/basicPageWrapper.svelte';
+	import { Star } from 'lucide-svelte';
 </script>
 
 <BasicPageWrapper title="Skate Classes">
@@ -21,7 +22,7 @@
 
 	<div class="flex gap-5 flex-wrap pt-10">
 		<!-- Entry level -->
-		<div class="bg-neutral-dark p-5 max-w-lg">
+		<div class="bg-neutral-dark p-7 max-w-lg">
 			<p class="font-heading text-2xl">Entry Level</p>
 			<p>
 				This is where new skaters learn to balance and roll on their skates, and gain some
@@ -40,8 +41,11 @@
 			</ul>
 		</div>
 		<!-- Star one -->
-		<div class="bg-neutral-dark p-5 max-w-lg">
-			<p class="font-heading text-2xl">Level 1</p>
+		<div class="bg-neutral-dark p-7 max-w-lg">
+			<div class="flex gap-4 items-center">
+				<p class="font-heading text-2xl">Level 1</p>
+				<Star fill="black" strokeWidth="0" class="pb-1" />
+			</div>
 			<p>
 				This is all about getting balance and control in your skating.
 				<br />
@@ -59,18 +63,20 @@
 			</ul>
 			<p>
 				Compared to the entry level, glides must show balance for a greater length of the floor.
-				<br />
 				The hardest part of level 1 for most skaters is the T-stop, because it requires a measure of balance,
 				roll and control. But once skaters gain these, they are almost always ready for level 2.
-				<br />
 				A few more challenging items might be introduced for fun; "tick tocks" (which involve moving weight
 				backward and forward on skates), backwards marching steps, and glides in the "spiral" position
 				(with the free leg held out behind).
 			</p>
 		</div>
 		<!-- Star two -->
-		<div class="bg-neutral-dark p-5 max-w-lg">
-			<p class="font-heading text-2xl">Level 2</p>
+		<div class="bg-neutral-dark p-7 max-w-lg">
+			<div class="flex gap-0.5 items-center">
+				<p class="font-heading text-2xl pe-4">Level 2</p>
+				<Star fill="black" strokeWidth="0" class="pb-1" />
+				<Star fill="black" strokeWidth="0" class="pb-1" />
+			</div>
 			<p>
 				When skaters gain entry to level 2, we know they're on track to becoming great skaters. As a
 				result, there's a lot in level 2 to challenge them:
@@ -97,8 +103,13 @@
 			</p>
 		</div>
 		<!-- Star three -->
-		<div class="bg-neutral-dark p-5 max-w-lg">
-			<p class="font-heading text-2xl">Level 3</p>
+		<div class="bg-neutral-dark p-7 max-w-lg">
+			<div class="flex gap-0.5 items-center">
+				<p class="font-heading text-2xl pe-4">Level 3</p>
+				<Star fill="black" strokeWidth="0" class="pb-1" />
+				<Star fill="black" strokeWidth="0" class="pb-1" />
+				<Star fill="black" strokeWidth="0" class="pb-1" />
+			</div>
 			<p>
 				We see anyone who enters this level as a good skater. If you're in level 3, you will become
 				aware of this, because it's where the artistic coaches start talking to skaters about trying
@@ -125,29 +136,36 @@
 			</p>
 		</div>
 		<!-- Star four -->
-		<div class="bg-neutral-dark p-5 max-w-lg">
-			<p class="font-heading text-2xl">Level 4</p>
-			<p>
-				Skaters who pass level 4 tend to stand out pretty clearly in the Rollerdrome's sessions;
-				they're the ones who seem to be floating effortlessly around the rink, turning to and from
-				backward skating without a pause, and throwing in the odd eye-catching trick just for
-				effect. Just to make sure, we hit you with some pretty high-level stuff:
-			</p>
+			<div class="bg-neutral-dark p-7 max-w-lg">
+				<div class="flex gap-0.5 items-center">
+					<p class="font-heading text-2xl pe-4">Level 4</p>
+					<Star fill="black" strokeWidth="0" class="pb-1" />
+					<Star fill="black" strokeWidth="0" class="pb-1" />
+					<Star fill="black" strokeWidth="0" class="pb-1" />
+					<Star fill="black" strokeWidth="0" class="pb-1" />
+				</div>
+				<p>
+					Skaters who pass level 4 tend to stand out pretty clearly in the Rollerdrome's sessions;
+					they're the ones who seem to be floating effortlessly around the rink, turning to and from
+					backward skating without a pause, and throwing in the odd eye-catching trick just for
+					effect. Just to make sure, we hit you with some pretty high-level stuff:
+				</p>
 
-			<ul class="list-['★__'] ps-6 py-2">
-				<li>Backward Cross Pulls</li>
-				<li>Balancing backwards on outside and inside edges</li>
-				<li>Mohawk Turns</li>
-				<li>Two-foot jump - with or without a half turn</li>
-				<li>Two Foot Pump Spin</li>
-				<li>Forward glides - held for a few seconds, on clear outside edges</li>
-			</ul>
-			<p>
-				As "challenge" items, your instructor may introduce you to Mohawk turns backward to forward,
-				one foot turns (no doubt you'll need to balance on the wall to this this one), and slaloms.
-			</p>
+				<ul class="list-['★__'] ps-6 py-2">
+					<li>Backward Cross Pulls</li>
+					<li>Balancing backwards on outside and inside edges</li>
+					<li>Mohawk Turns</li>
+					<li>Two-foot jump - with or without a half turn</li>
+					<li>Two Foot Pump Spin</li>
+					<li>Forward glides - held for a few seconds, on clear outside edges</li>
+				</ul>
+				<p>
+					As "challenge" items, your instructor may introduce you to Mohawk turns backward to
+					forward, one foot turns (no doubt you'll need to balance on the wall to this this one),
+					and slaloms.
+				</p>
+			</div>
 		</div>
-	</div>
 	<p class="font-heading text-3xl pt-10">Moving up the levels</p>
 	<p>
 		We occasionally are asked "When will my child be tested, to see if they can go up a level?". We
