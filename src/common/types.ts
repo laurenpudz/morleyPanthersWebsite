@@ -33,4 +33,10 @@ interface CalendarEventProps {
 	venue?: string;
 }
 
-export type { LandingCardProps, HeadingProps, ChampionProps, CalendarEventProps };
+interface CommMemberProps {
+	role: string;
+	name: string;
+	email: string;
+}
+
+export type { LandingCardProps, HeadingProps, ChampionProps, CalendarEventProps, CommMemberProps };
