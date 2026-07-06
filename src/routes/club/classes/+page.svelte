@@ -49,7 +49,7 @@
 			<p>
 				This is all about getting balance and control in your skating.
 				<br />
-				The items in level 1 are:
+			The items in level 1 are:
 			</p>
 
 			<ul class="list-['★__'] ps-6 py-2">

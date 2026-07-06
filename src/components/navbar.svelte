@@ -76,7 +76,7 @@
 					onmouseenter={() => (currOpen = link.title)}
 					onmouseleave={() => (currOpen = null)}
 				>
-					<button class="font-heading">{link.title}</button>
+					<button class="font-heading text-lg">{link.title}</button>
 					{#if currOpen == link.title}
 						<div class="bg-neutral-dark text-black flex flex-col gap-3 absolute p-5">
 							{#each link.children as child (child.title)}

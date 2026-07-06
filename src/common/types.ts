@@ -3,47 +3,57 @@ export enum ButtonColourScheme {
 	Blue
 }
 
-interface ButtonProps {
+type ButtonProps = {
 	text: string;
 	href: string;
 	colourScheme: ButtonColourScheme;
-}
+};
 
-interface LandingCardProps {
+type LandingCardProps = {
 	title: string;
 	description: string;
 	image: string;
 	button?: ButtonProps;
-}
+};
 
-interface HeadingProps {
+type HeadingProps = {
 	title: string;
-}
+};
 
-interface ChampionProps {
+type ChampionProps = {
 	name: string;
 	image: string;
 	titles: string[];
-}
+};
 
-interface CalendarEventProps {
+type CalendarEventProps = {
 	startDate: string;
-    endDate: string;
+	endDate: string;
 	name: string;
 	venue?: string;
-}
+};
 
-interface CommMemberProps {
+type CommMemberProps = {
 	role: string;
 	name: string;
 	email: string;
-}
+};
 
-interface LifeMemberProps {
+type LifeMemberProps = {
 	name: string;
 	year: string;
 	image: string;
 	bio: string;
-}
+};
 
-export type { LandingCardProps, HeadingProps, ChampionProps, CalendarEventProps, CommMemberProps, LifeMemberProps };
+type AwardWinnerProps = Omit<LifeMemberProps, 'image'>;
+
+export type {
+	LandingCardProps,
+	HeadingProps,
+	ChampionProps,
+	CalendarEventProps,
+	CommMemberProps,
+	LifeMemberProps,
+	AwardWinnerProps
+};
