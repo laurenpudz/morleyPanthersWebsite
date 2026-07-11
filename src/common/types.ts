@@ -46,6 +46,12 @@ type LifeMemberProps = {
 	bio: string;
 };
 
+type MinutesDocProps = {
+	displayName: string;
+	link: string;
+	date: string;
+}
+
 type AwardWinnerProps = Omit<LifeMemberProps, 'image'>;
 
 export type {
@@ -55,5 +61,6 @@ export type {
 	CalendarEventProps,
 	CommMemberProps,
 	LifeMemberProps,
-	AwardWinnerProps
+	AwardWinnerProps,
+	MinutesDocProps,
 };

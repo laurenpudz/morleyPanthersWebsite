@@ -28,12 +28,18 @@
 		{
 			name: 'Tyler Robertson',
 			year: '2025',
-			bio: 'asdffdsfd'
+			bio: ''
 		},
 		{
 			name: 'Tyler Robertson',
 			year: '2020',
-			bio: 'dsfaffdsdsf'
+			bio: ''
+		},
+		{ name: 'Jasper Syme ', year: '2019', bio: '' },
+		{
+			name: 'Alex Myint',
+			year: '2018',
+			bio: ''
 		}
 	];
 </script>
@@ -42,6 +48,19 @@
 	<table class="w-full my-10 text-left">
 		<tbody>
 			{#each margAwards as awardWinner, i (awardWinner.name)}
+				<tr class:bg-neutral-medium={i % 2 == 0}>
+					<td class="font-bold px-3">{awardWinner.name}</td>
+					<td class="px-3">{awardWinner.year}</td>
+					<td class="px-3 py-2">{awardWinner.bio} </td></tr
+				>
+			{/each}
+		</tbody>
+	</table>
+</BasicPageWrapper>
+<BasicPageWrapper title="Harry Kingston Award Winners">
+	<table class="w-full my-10 text-left">
+		<tbody>
+			{#each harryAwards as awardWinner, i (`${awardWinner.name}${i}`)}
 				<tr class:bg-neutral-medium={i % 2 == 0}>
 					<td class="font-bold px-3">{awardWinner.name}</td>
 					<td class="px-3">{awardWinner.year}</td>
