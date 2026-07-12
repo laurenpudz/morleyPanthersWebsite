@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { SvelteDate } from 'svelte/reactivity';
+
 	import BasicPageWrapper from '../../../components/basicPageWrapper.svelte';
 	import type { CalendarEventProps } from '../../../common/types';
+	import { findUpcomingEvents, findPastEvents } from '../../../common/dateUtils'
 	let currTab: string = $state('upcoming');
 
 	// TODO: this is not all events
@@ -42,24 +43,9 @@
 			venue: 'Donnybrook'
 		}
 	];
-	function parseEventDate(dateStr: string): Date {
-		const [day, month, year] = dateStr.split('-').map(Number);
-		return new SvelteDate(year, month - 1, day);
-	}
 
-	function isPastEvent(endDate: string): boolean {
-		const today = new SvelteDate();
-		today.setHours(0, 0, 0, 0);
-		return parseEventDate(endDate) < today;
-	}
-
-	const upcomingEvents: CalendarEventProps[] = $derived(
-		events.filter((event) => !isPastEvent(event.endDate))
-	);
-
-	const pastEvents: CalendarEventProps[] = $derived(
-		events.filter((event) => isPastEvent(event.endDate))
-	);
+	const upcomingEvents = $derived(findUpcomingEvents(events))
+	const pastEvents = $derived(findPastEvents(events))
 </script>
 
 <!-- TODO: Pagination -->

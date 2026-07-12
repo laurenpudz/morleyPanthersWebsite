@@ -49,7 +49,12 @@ type LifeMemberProps = {
 type MinutesDocProps = {
 	displayName: string;
 	link: string;
-	date: string;
+	year: string;
+}
+
+type DownloadDocProps = {
+	name: string;
+	link: string;
 }
 
 type AwardWinnerProps = Omit<LifeMemberProps, 'image'>;
@@ -63,4 +68,5 @@ export type {
 	LifeMemberProps,
 	AwardWinnerProps,
 	MinutesDocProps,
+	DownloadDocProps
 };
