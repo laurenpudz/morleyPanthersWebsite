@@ -4,7 +4,7 @@
 
 	let currOpen: string | null = $state(null);
 	let mobileMenu = $state(false);
-	const links = [
+	export const links = [
 		{
 			title: "What's New",
 			link: 'whatsnew',
@@ -79,7 +79,7 @@
 					{#if currOpen == link.title}
 						<div class="bg-neutral-dark text-black flex flex-col gap-3 absolute p-5">
 							{#each link.children as child (child.title)}
-								<a class="hover:text-red-dark" href={resolve(child.link)}>{child.title}</a>
+								<a class="hover:text-red-dark font-heading" href={resolve(child.link)}>{child.title}</a>
 							{/each}
 						</div>
 					{/if}

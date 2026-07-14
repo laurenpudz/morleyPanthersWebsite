@@ -65,7 +65,8 @@
 </div>
 <img src="cut-out-skater-1.png"> -->
 <div class="relative">
-	<div class="bg-neutral-dark/70 p-8">
+	<!-- <div class="bg-neutral-dark/70 p-8"> -->
+	 <div class='p-8'>
 		<p class="font-heading text-5xl">Contact us!</p>
 		<p class="text-lg md:text-2xl underline font-bold text-red-dark">morleypresident@outlook.com</p>
 	</div>
