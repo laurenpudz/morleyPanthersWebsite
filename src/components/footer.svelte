@@ -58,8 +58,8 @@
 	<div class="flex-col gap-3 max-w-7xl mx-auto">
 		<div class="flex gap-12 justify-between">
 			<div class="flex gap-1 pe-4 self-centre">
-				<img src="morleypanthers.png" class="w-32 sm:w-64 xl:w-72 shrink-0" alt="Morley Panthers">
-				<img src="panther.svg" class="w-24 sm:w-48 xl:w-64 shrink-0" alt="Morley Panthers' panther logo"/>
+				<img src="/morleypanthers.svg" class="w-32 sm:w-64 xl:w-72 shrink-0" alt="Morley Panthers">
+				<img src="/panther.svg" class="w-24 sm:w-48 xl:w-64 shrink-0" alt="Morley Panthers' panther logo"/>
 			</div>
 			{#each links as link (link.title)}
 				<div class="hidden lg:block">

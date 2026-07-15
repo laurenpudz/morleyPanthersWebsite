@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Menu, ChevronDown, ChevronRight } from 'lucide-svelte';
 	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 
 	let currOpen: string | null = $state(null);
 	let mobileMenu = $state(false);
@@ -57,9 +58,18 @@
 	];
 	// TODO: probs include this in the code instead of defining here
 	const topLevelLinkTitles = links.map((link) => link.title);
+
+	// Fuctions to determine active page for navbar highlight.
+	function isChildActive(child: { link: string }) {
+		return page.url.pathname === child.link;
+	}
+
+	function isParentActive(link: { children: { link: string }[] }) {
+		return link.children.some((child) => isChildActive(child));
+	}
 </script>
 
-<nav class="bg-neutral-dark py-5 drop-shadow-xl">
+<nav class="bg-neutral-dark py-2 drop-shadow-xl">
 	<div class="flex justify-between items-center px-10">
 		<a class="font-heading text-xl" href={resolve('/')}>Morley Panthers</a>
 
@@ -67,7 +77,7 @@
 		<Menu class="md:hidden" onclick={() => (mobileMenu = !mobileMenu)} />
 
 		<!-- Main desktop nav -->
-		<div class="hidden md:flex gap-5">
+		<div class="hidden md:flex gap">
 			{#each links as link (link.title)}
 				<!-- svelte-ignore a11y_no_static_element_interactions -->
 				<div
@@ -75,11 +85,16 @@
 					onmouseenter={() => (currOpen = link.title)}
 					onmouseleave={() => (currOpen = null)}
 				>
-					<button class="font-heading text-lg">{link.title}</button>
+					<button
+						class="font-heading text-lg px-4 py-3 rounded-md {isParentActive(link) ? 'bg-red-dark text-white' : ''}"
+						>{link.title}</button
+					>
 					{#if currOpen == link.title}
 						<div class="bg-neutral-dark text-black flex flex-col gap-3 absolute p-5">
 							{#each link.children as child (child.title)}
-								<a class="hover:text-red-dark font-heading" href={resolve(child.link)}>{child.title}</a>
+								<a class="hover:text-red-dark font-heading" href={resolve(child.link)}
+									>{child.title}</a
+								>
 							{/each}
 						</div>
 					{/if}

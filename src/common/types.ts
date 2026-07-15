@@ -67,6 +67,13 @@ type VideoGroupProps = {
 	videos: VideoProps[]
 }
 
+type CoachProps = {
+	name: string;
+	bio: string;
+	certifications: string[];
+	image: string;
+}
+
 type AwardWinnerProps = Omit<LifeMemberProps, 'image'>;
 
 export type {
@@ -79,5 +86,6 @@ export type {
 	AwardWinnerProps,
 	MinutesDocProps,
 	DownloadDocProps,
-	VideoGroupProps
+	VideoGroupProps,
+	CoachProps
 };
