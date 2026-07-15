@@ -18,6 +18,7 @@
 			title: 'Club',
 			link: 'club',
 			children: [
+				{ title: 'Learn to Skate Classes', link: '/club/learntoskateclasses' },
 				{ title: 'Classes', link: '/club/classes' },
 				{ title: 'Committee', link: '/club/committee' },
 				{ title: 'Life Members', link: '/club/lifemembers' },
@@ -86,8 +87,9 @@
 					onmouseleave={() => (currOpen = null)}
 				>
 					<button
-						class="font-heading text-lg px-4 py-3 rounded-md {isParentActive(link) ? 'bg-red-dark text-white' : ''}"
-						>{link.title}</button
+						class="font-heading text-lg px-4 py-3 rounded-md {isParentActive(link)
+							? 'bg-red-dark text-white'
+							: ''}">{link.title}</button
 					>
 					{#if currOpen == link.title}
 						<div class="bg-neutral-dark text-black flex flex-col gap-3 absolute p-5">

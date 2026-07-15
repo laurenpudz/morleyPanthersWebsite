@@ -1,19 +1,13 @@
 <script lang="ts">
 	import { IconBrandInstagram } from '@tabler/icons-svelte';
 	import { IconBrandFacebook } from '@tabler/icons-svelte';
+	// Same as navbar links, just excluding the recently added section.
 	const links = [
-		// {
-		// 	title: "What's New",
-		// 	link: 'whatsnew',
-		// 	children: [
-		// 		{ title: '2026 Nationals Figure Draws', link: '/2026nationalsfiguredraw' },
-		// 		{ title: '2026 Leauge 3 Program', link: '/leauge3program' }
-		// 	]
-		// },
 		{
 			title: 'Club',
 			link: 'club',
 			children: [
+				{ title: 'Learn to Skate Classes', link: '/club/learntoskateclasses' },
 				{ title: 'Classes', link: '/club/classes' },
 				{ title: 'Committee', link: '/club/committee' },
 				{ title: 'Life Members', link: '/club/lifemembers' },

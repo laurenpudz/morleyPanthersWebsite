@@ -50,28 +50,47 @@ type MinutesDocProps = {
 	displayName: string;
 	link: string;
 	year: string;
-}
+};
 
 type DownloadDocProps = {
 	name: string;
 	link: string;
-}
+};
 
 type VideoProps = {
 	name: string;
 	link: string;
-}
+};
 
 type VideoGroupProps = {
 	name: string;
-	videos: VideoProps[]
-}
+	videos: VideoProps[];
+};
 
 type CoachProps = {
 	name: string;
 	bio: string;
 	certifications: string[];
 	image: string;
+};
+
+type CalendarClassProps = {
+	day: CalendarDay;
+	startTime: string;
+	endTime: string;
+	name: string;
+	coaches?: string;
+	tooltipNote?: string;
+};
+
+export enum CalendarDay {
+	Monday = 0,
+	Tuesday,
+	Wednesday,
+	Thursday,
+	Friday,
+	Saturday,
+	Sunday
 }
 
 type AwardWinnerProps = Omit<LifeMemberProps, 'image'>;
@@ -87,5 +106,6 @@ export type {
 	MinutesDocProps,
 	DownloadDocProps,
 	VideoGroupProps,
-	CoachProps
+	CoachProps,
+	CalendarClassProps
 };
