@@ -82,6 +82,7 @@ type CalendarClassProps = {
 	coaches?: string;
 	tooltipNote?: string;
 	colour: string;
+
 };
 
 export enum CalendarDay {

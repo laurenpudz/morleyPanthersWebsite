@@ -23,7 +23,7 @@
 				{ title: 'Committee', link: '/club/committee' },
 				{ title: 'Life Members', link: '/club/lifemembers' },
 				{ title: 'Award Winners', link: '/club/awardwinners' },
-				{ title: 'Minutes', link: '/club/minutes' }
+				{ title: 'Minutes and Documents', link: '/club/minutes' }
 			]
 		},
 		{

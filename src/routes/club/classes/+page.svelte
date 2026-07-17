@@ -11,28 +11,32 @@
 			startTime: '07:00:00',
 			endTime: '09:00:00',
 			day: CalendarDay.Sunday,
-			colour: '#99d1db'
+			colour: '#99d1db',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		{
 			name: 'Development Class',
 			startTime: '09:00:00',
 			endTime: '09:30:00',
 			day: CalendarDay.Sunday,
-			colour: '#babbf1'
+			colour: '#babbf1',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		{
 			name: 'Learn to Skate Class',
 			startTime: '09:30:00',
 			endTime: '10:00:00',
 			day: CalendarDay.Sunday,
-			colour: '#81c8be'
+			colour: '#81c8be',
+			tooltipNote: 'Includes 10-12 session'
 		},
 		{
 			name: 'Artistic Training',
 			startTime: '15:30:00',
 			endTime: '18:30:00',
 			day: CalendarDay.Sunday,
-			colour: '#99d1db'
+			colour: '#99d1db',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		// SATURDAY ----------------------------
 		{
@@ -40,7 +44,8 @@
 			startTime: '07:00:00',
 			endTime: '09:00:00',
 			day: CalendarDay.Saturday,
-			colour: '#99d1db'
+			colour: '#99d1db',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		{
 			name: 'Development Class',
@@ -54,49 +59,57 @@
 			startTime: '09:30:00',
 			endTime: '10:00:00',
 			day: CalendarDay.Saturday,
-			colour: '#81c8be'
+			colour: '#81c8be',
+			tooltipNote: 'Includes 10-12 session'
 		},
 		{
 			name: 'Artistic Training',
 			startTime: '15:30:00',
 			endTime: '18:30:00',
 			day: CalendarDay.Saturday,
-			colour: '#99d1db'
+			colour: '#99d1db',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		{
 			name: 'Artistic Training',
 			startTime: '15:30:00',
 			endTime: '18:00:00',
 			day: CalendarDay.Monday,
-			colour: '#99d1db'
+			colour: '#99d1db',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		{
 			name: 'Dance Skills Class',
 			startTime: '18:00:00',
 			endTime: '18:30:00',
 			day: CalendarDay.Monday,
-			colour: '#ea999c'
+			colour: '#ea999c',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		{
 			name: 'Compulsory Dance Class',
 			startTime: '18:30:00',
 			endTime: '19:00:00',
 			day: CalendarDay.Monday,
-			colour: '#ea999c'
+			colour: '#ea999c',
+			coaches: 'Sue/Larree',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		{
 			name: 'Learn to Skate Class',
 			startTime: '16:00:00',
 			endTime: '16:45:00',
 			day: CalendarDay.Tuesday,
-			colour: ''
+			colour: '#81c8be',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		{
 			name: 'Development Class',
 			startTime: '16:45:00',
 			endTime: '17:30:00',
 			day: CalendarDay.Tuesday,
-			colour: ''
+			colour: '#babbf1',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		{
 			name: 'Speed Class',
@@ -110,28 +123,33 @@
 			startTime: '15:30:00',
 			endTime: '18:00:00',
 			day: CalendarDay.Wednesday,
-			colour: '#99d1db'
+			colour: '#99d1db',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		{
 			name: 'Figures Class',
 			startTime: '18:00:00',
 			endTime: '18:30:00',
 			day: CalendarDay.Wednesday,
-			colour: '#ea999c'
+			colour: '#ea999c',
+			coaches: 'Allan',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		{
 			name: 'Artistic Training',
 			startTime: '15:30:00',
 			endTime: '18:00:00',
 			day: CalendarDay.Thursday,
-			colour: '#99d1db'
+			colour: '#99d1db',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		},
 		{
 			name: 'Artistic Training',
 			startTime: '15:30:00',
 			endTime: '18:00:00',
 			day: CalendarDay.Friday,
-			colour: '#99d1db'
+			colour: '#99d1db',
+			tooltipNote: 'See note on fees at the bottom of the page'
 		}
 	];
 
@@ -200,52 +218,98 @@
 </script>
 
 <BasicPageWrapper title="Class Timetable">
-	<!-- <table class="w-full my-10 text-left border-spacing-1 border-separate"> -->
-	<table class="w-full my-10 text-left border-4 border-neutral-light">
-		<thead>
-			<tr>
-				<th></th>
-				{#each allDays as day (day)}
-					<th
-						class="px-2 pb-2 w-48 text-center font-heading text-lg"
-						style="border: 2px solid rgba(0,0,0, 0.10);">{CalendarDay[day]}</th
-					>
-				{/each}
-			</tr>
-		</thead>
-		<tbody>
-			{#each allTimes as time (time)}
-				{#if time === '10:00:00'}
-					<tr><td colspan={7} class="pt-6"><hr class="border-t-3 border-dashed" /></td></tr>
-				{/if}
-				{#if shouldRenderTime(time)}
-					<tr>
-						<td class="p-1 h-8" style="border: 2px solid rgba(0,0,0, 0.10);"></td>
-						{#each allDays as day (day)}
-							{#if partitions[time] && partitions[time][day]}
-								<td
-									rowspan={findColsForClass(partitions[time][day])}
-									class="relative p-0"
-									style="border: 2px solid rgba(0,0,0, 0.10);"
-								>
-									<div
-										class=" px-3 absolute inset-1 flex flex-col justify-center rounded-xs"
-										style="background-color: {partitions[time][day].colour};"
+	<div class="w-full min-w-0 overflow-x-auto px-12">
+		<table class="w-full min-w-5xl my-10 text-left border-4 border-neutral-light">
+			<thead>
+				<tr>
+					<th></th>
+					{#each allDays as day (day)}
+						<th
+							class="px-2 pb-2 w-48 text-center font-heading text-lg"
+							style="border: 2px solid rgba(0,0,0, 0.10);">{CalendarDay[day]}</th
+						>
+					{/each}
+				</tr>
+			</thead>
+			<tbody>
+				{#each allTimes as time (time)}
+					{#if time === '10:00:00'}
+						<!-- Dashed indicator for 10-3:30 break -->
+						<tr><td colspan={9} class="pt-6"><hr class="border-t-3 border-dashed" /></td></tr>
+					{/if}
+					{#if shouldRenderTime(time)}
+						<tr>
+							<!-- empty td to give extra lines to the side of the table -->
+							<td class="p-1 h-8" style="border: 2px solid rgba(0,0,0, 0.10);"></td>
+							{#each allDays as day (day)}
+								{#if partitions[time] && partitions[time][day]}
+									<td
+										rowspan={findColsForClass(partitions[time][day])}
+										class="relative p-0"
+										style="border: 2px solid rgba(0,0,0, 0.10);"
 									>
-										<p class="font-semibold text-sm text-center opacity-75">
-											{partitions[time][day].name}
-										</p>
-										<p class="text-center text-xs ppacity-75">{formatTime(partitions[time][day].startTime)}-{formatTime(partitions[time][day].endTime)}</p>
-									</div>
-								</td>
-							{:else if !isSkipped(day, time)}
-								<td class="p-3 h-8" style="border: 2px solid rgba(0,0,0, 0.10);"></td>
-							{/if}
-						{/each}
-						<td class="p-1 h-8" style="border: 2px solid rgba(0,0,0, 0.10);"></td>
-					</tr>
-				{/if}
-			{/each}
-		</tbody>
-	</table>
+										<div
+											class="group px-3 absolute inset-1 flex flex-col justify-center rounded-xs cursor-default"
+											style="background-color: {partitions[time][day].colour};"
+										>
+											<p class="font-semibold text-sm text-center opacity-75">
+												{partitions[time][day].name}
+											</p>
+											<p class="text-center text-xs opacity-75">
+												{formatTime(partitions[time][day].startTime)}-{formatTime(
+													partitions[time][day].endTime
+												)}
+											</p>
+
+											<!-- Tooltip with extra class information and coaches -->
+											<div
+												class="opacity-0 group-hover:opacity-100 transition-opacity
+												       absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50
+												       whitespace-nowrap rounded-md bg-neutral-dark px-2 py-1 text-xs"
+											>
+												{partitions[time][day].name} · {formatTime(
+													partitions[time][day].startTime
+												)}-{formatTime(partitions[time][day].endTime)}
+
+												{#if partitions[time][day].coaches}
+													<br />
+													<b>{partitions[time][day].coaches}</b>
+												{/if}
+												{#if partitions[time][day].tooltipNote}
+													<br />
+													<b>{partitions[time][day].tooltipNote}</b>
+												{/if}
+											</div>
+										</div>
+									</td>
+								{:else if !isSkipped(day, time)}
+									<td class="p-3 h-8" style="border: 2px solid rgba(0,0,0, 0.10);"></td>
+								{/if}
+							{/each}
+							<!-- empty td to give extra lines to the side of the table -->
+							<td class="p-1 h-8" style="border: 2px solid rgba(0,0,0, 0.10);"></td>
+						</tr>
+					{/if}
+				{/each}
+			</tbody>
+		</table>
+	</div>
+</BasicPageWrapper>
+<BasicPageWrapper title="Practice Rink Fees">
+	<p class="font-heading text-xl">Monthly</p>
+	<p>
+		3 Months= $350, Extra Family Members = $220
+		<br />
+		Each 3 month pass covers all practice sessions and classes.
+	</p>
+	<p class="font-heading text-xl mt-4">Per-Session</p>
+	<p>
+		One ticket covers one class or practice session.
+		<br />
+		20 Tickets = $240
+		<br />
+		10 Tickets = $140
+		<br />
+		Casual = $17
+	</p>
 </BasicPageWrapper>
